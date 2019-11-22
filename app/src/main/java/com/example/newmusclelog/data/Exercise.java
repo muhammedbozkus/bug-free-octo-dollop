@@ -15,6 +15,14 @@ public class Exercise implements Parcelable {
         this.currentWeight = currentWeight;
     }
 
+    public Exercise(String name) {
+        this.name = name;
+    }
+
+    public Exercise() {
+
+    }
+
     public String getName() {
         return name;
     }
