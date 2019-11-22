@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "837159377796",
+    "firebase_url": "https://newmusclelog.firebaseio.com",
+    "project_id": "newmusclelog",
+    "storage_bucket": "newmusclelog.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:837159377796:android:a99bac9cd8680ab6221bd1",
+        "android_client_info": {
+          "package_name": "com.example.newmusclelog"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "837159377796-ssb1m8fm9j3n06nf16dh2ic1jko1tucc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDnYeENXRT_xjoiHx4O99vyFhjZOVZlmcc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "837159377796-ssb1m8fm9j3n06nf16dh2ic1jko1tucc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

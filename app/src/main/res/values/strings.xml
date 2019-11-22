@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">NewMuscleLog</string>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="login">Login</string>
+    <string name="signUp">Sign Up</string>
+    <string name="email">E-Mail</string>
+    <string name="password">Password</string>
+    <string name="startNewWorkout">Start New Workout</string>
+    <string name="blank_recyclerview">Add Exercises with the plus button</string>
+    <string name="exercise_name">Exercise Name</string>
+    <string name="Weight_kg">Weight (kg)</string>
+    <string name="reps">reps</string>
+    <string name="Reps">Reps</string>
+    <string name="kg">kg</string>
+    <string name="save">Save</string>
+    <string name="delete">Delete</string>
+</resources>
