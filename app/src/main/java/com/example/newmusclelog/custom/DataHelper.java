@@ -28,7 +28,7 @@ public class DataHelper {
         json = new String(buffer, "UTF-8");
 
         JSONObject obj = new JSONObject(json);
-        JSONArray jsonArray = obj.getJSONArray("girlsBenchmark");
+        JSONArray jsonArray = obj.getJSONArray("exerciseList");
 
         for(int i = 0; i < jsonArray.length(); i++) {
             JSONObject jsonObject = jsonArray.getJSONObject(i);

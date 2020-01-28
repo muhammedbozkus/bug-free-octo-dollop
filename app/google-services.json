@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "837159377796-q7jajj66iejcsm4f86a4rqam2ouj2pvr.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.newmusclelog",
+            "certificate_hash": "cd82ed49656b9acbc07ed27fedcd012d8bb9c6e2"
+          }
+        },
+        {
           "client_id": "837159377796-ssb1m8fm9j3n06nf16dh2ic1jko1tucc.apps.googleusercontent.com",
           "client_type": 3
         }

@@ -76,4 +76,8 @@ public class Exercise implements Parcelable {
         reps = in.readInt();
         currentWeight = in.readInt();
     }
+
+    public String toString() {
+        return "Exercise: " + name + " Reps: " + reps + " Weight: " + currentWeight + "\n";
+    }
 }

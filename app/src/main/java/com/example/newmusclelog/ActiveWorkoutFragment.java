@@ -6,8 +6,10 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.core.app.NavUtils;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.ItemTouchHelper;
@@ -30,8 +32,12 @@ import com.example.newmusclelog.data.Exercise;
 import com.example.newmusclelog.data.Workout;
 import com.example.newmusclelog.data.WorkoutHistory;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.io.IOException;
+import java.util.List;
 import java.util.Objects;
 
 public class ActiveWorkoutFragment extends Fragment {
@@ -42,10 +48,14 @@ public class ActiveWorkoutFragment extends Fragment {
     private ExerciseRecyclerViewAdapter adapter;
     private WorkoutHistory workoutHistory;
     private FloatingActionButton fab;
+    private FirebaseAuth mAuth;
+    private DatabaseReference databaseWorkouts;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+
 
         View v =  inflater.inflate(R.layout.fragment_active_workout, container, false);
         fab = v.findViewById(R.id.fab);
@@ -53,6 +63,10 @@ public class ActiveWorkoutFragment extends Fragment {
         setHasOptionsMenu(true);
 
         workout = new Workout("WORKOUT");
+
+        if(savedInstanceState != null) {
+            workout = savedInstanceState.getParcelable("key");
+        }
         /*Bundle bundle = savedInstanceState;
         if (bundle != null) {
             workout = bundle.getParcelable("WORKOUT");
@@ -111,8 +125,9 @@ public class ActiveWorkoutFragment extends Fragment {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.action_save: {
+
                 // set focus to trigger the focus listeners in the CustomEditTexts
-                exerciseRecyclerView.requestFocus();
+                /*exerciseRecyclerView.requestFocus();
 
                 hideKeyboard(getContext(), emptyRecyclerView);
 
@@ -120,7 +135,25 @@ public class ActiveWorkoutFragment extends Fragment {
                     workoutHistory.updateWorkout(workout);
                 } catch (IOException e) {
                     e.printStackTrace();
-                }
+                }*/
+
+                //Navigation.findNavController(this.getActivity(), R.id.nav_host_fragment).navigate(R.id.exercisesFragment);
+
+                System.out.println(workout.getExercises().size());
+                List<Exercise> exercises = workout.getExercises();
+                String firstexercise = exercises.get(0).getName();
+                System.out.println(firstexercise);
+
+                mAuth = FirebaseAuth.getInstance();
+                String user_id = mAuth.getCurrentUser().getUid();
+
+
+                databaseWorkouts = FirebaseDatabase.getInstance().getReference("Workouts").child(user_id);
+                String id = databaseWorkouts.push().getKey();
+
+                workout = new Workout("abc", user_id, exercises);
+                databaseWorkouts.child(id).setValue(workout);
+
 
                 Toast.makeText(getContext(), "Workout saved", Toast.LENGTH_SHORT).show();
 
@@ -141,16 +174,12 @@ public class ActiveWorkoutFragment extends Fragment {
                     }
 
                     Toast.makeText(getContext(), "Workout deleted", Toast.LENGTH_SHORT).show();
-
-
                 });
-
                 builder.setNegativeButton(android.R.string.no, (dialog, which) -> {
                     dialog.dismiss();
                 });
 
                 builder.show();
-
                 return true;
             }
             default:
@@ -158,7 +187,6 @@ public class ActiveWorkoutFragment extends Fragment {
                 return super.onOptionsItemSelected(item);
         }
     }
-
 
     public void showEmptyRecyclerViewText()
     {
@@ -182,5 +210,11 @@ public class ActiveWorkoutFragment extends Fragment {
         InputMethodManager imm = (InputMethodManager) context.getSystemService
                 (Activity.INPUT_METHOD_SERVICE);
         imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+    }
+
+    @Override
+    public void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putParcelable("key", workout);
     }
 }

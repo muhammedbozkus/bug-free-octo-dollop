@@ -3,12 +3,16 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/newworkoutFragment">
+    app:startDestination="@id/homeFragment">
     <fragment
         android:id="@+id/newworkoutFragment"
         android:name="com.example.newmusclelog.NewWorkoutFragment"
         android:label="fragment_newworkout"
-        tools:layout="@layout/fragment_newworkout" />
+        tools:layout="@layout/fragment_newworkout" >
+        <action
+            android:id="@+id/action_newworkoutFragment_to_activeWorkoutFragment"
+            app:destination="@id/activeWorkoutFragment" />
+    </fragment>
     <fragment
         android:id="@+id/historyFragment"
         android:name="com.example.newmusclelog.HistoryFragment"
@@ -23,12 +27,20 @@
         android:id="@+id/loginFragment"
         android:name="com.example.newmusclelog.LoginFragment"
         android:label="fragment_login"
-        tools:layout="@layout/fragment_login" />
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_loginFragment_to_newworkoutFragment"
+            app:destination="@id/newworkoutFragment" />
+    </fragment>
     <fragment
         android:id="@+id/signupFragment"
         android:name="com.example.newmusclelog.SignupFragment"
         android:label="fragment_signup"
-        tools:layout="@layout/fragment_signup" />
+        tools:layout="@layout/fragment_signup" >
+        <action
+            android:id="@+id/action_signupFragment_to_newworkoutFragment"
+            app:destination="@id/newworkoutFragment" />
+    </fragment>
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.example.newmusclelog.HomeFragment"
@@ -51,5 +63,12 @@
         android:id="@+id/activeWorkoutFragment"
         android:name="com.example.newmusclelog.ActiveWorkoutFragment"
         android:label="fragment_active_workout"
-        tools:layout="@layout/fragment_active_workout" />
+        tools:layout="@layout/fragment_active_workout" >
+        <action
+            android:id="@+id/action_activeWorkoutFragment_to_exercisesFragment"
+            app:destination="@id/exercisesFragment" />
+        <action
+            android:id="@+id/action_activeWorkoutFragment_to_historyFragment"
+            app:destination="@id/historyFragment" />
+    </fragment>
 </navigation>

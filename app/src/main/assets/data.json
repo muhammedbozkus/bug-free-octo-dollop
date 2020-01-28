@@ -1,84 +1,44 @@
 {
-"girlsBenchmark" : [
+"exerciseList" : [
  {
    "title": "Ab Wheel",
-   "wod": "100 Pull-ups\n100 Push-ups\n100 Sit-ups\n100 Squats\nFor Time\nComplete all reps of each exercise before moving to the next."
+   "bodypart": "abs"
  },
  {
    "title": "Arnold Press",
-   "wod": "20 Pull-ups\n30 Push-ups\n40 Sit-ups\n50 Squats\n5 rounds for time"
+   "bodypart": "shoulders"
  },
  {
    "title": "Around the World",
-   "wod": "5 Pull-ups\n10 Push-ups\n15 Squats\nEach min on the min for 30 min"
+   "bodypart": "mixed"
  },
  {
    "title": "Back Extension",
-   "wod": "5 Pull-ups\n10 Push-ups\n15 Squats\nAs many rounds as possible in 20 min"
+   "bodypart": "back"
  },
  {
    "title": "Bench Dip",
-   "wod": "Deadlift 225 lbs\nHandstand push-ups\n21-15-9 reps, for time"
+   "bodypart": "triceps"
  },
  {
-   "title": "Bench Press",
-   "wod": "Clean 135 lbs\nRing Dips\n21-15-9 reps, for time"
+   "title": "Ab Wheel",
+   "bodypart": "abs"
  },
  {
-   "title": "Bent Over Row",
-   "wod": "Thruster 95 lbs\nPull-ups\n21-15-9 reps, for time"
+   "title": "Arnold Press",
+   "bodypart": "shoulders"
  },
  {
-   "title": "Bicep Curl",
-   "wod": "Clean and Jerk 135 lbs\n30 reps for time"
+   "title": "Around the World",
+   "bodypart": "mixed"
  },
  {
-   "title": "Box Squat",
-   "wod": "400 meter run\n1.5 pood Kettlebell swing x 21\nPull-ups 12 reps\n3 rounds for time"
+   "title": "Back Extension",
+   "bodypart": "back"
  },
  {
-   "title": "Bulgarian Split Squat",
-   "wod": "Snatch 135 pounds\n30 reps for time"
- },
- {
-   "title": "Cable Crossover",
-   "wod": "1000 meter row\nThruster 45 lbs (50 reps)\nPull-ups (30 reps)\nFor time"
- },
- {
-   "title": "Cable Crunch",
-   "wod": "Wall-ball 150 shots\nFor time\n"
- },
- {
-   "title": "Cable Kickback",
-   "wod": "Deadlift 1 1/2 BW\nBench BW\nClean 3/4 BW\n10/9/8/7/6/5/4/3/2/1 rep\nrounds for time"
- },
- {
-   "title": "Cable Twist",
-   "wod": "5 Handstand push-ups\n10 1-legged squats\n15 Pull-ups\nAs many rounds as possible in 20 min"
- },
- {
-   "title": "Calf Press",
-   "wod": "400 meter run\nOverhead squat 95 lbs x 15\n5 rounds for time"
- },
- {
-   "title": "Chest Dip",
-   "wod": "Double-unders\nSit-ups\n50-40-30-20 and 10 rep rounds; for time"
- },
- {
-   "title": "Chest Fly",
-   "wod": "Run 800 meters\n2 pood KB swing, 30 reps\n30 pullups\n5 rounds for time."
- },
- {
-   "title": "Chest Press",
-   "wod": "Run 400 meters\n30 box jump, 24 inch box\n30 Wall ball shots, 20 pound ball\nFive rounds for time"
- },
- {
-   "title": "Chin Up",
-   "wod": "Bodyweight bench press (e.g., same amount on bar as you weigh)\npullups\n5 rounds for max reps. There is NO time component to this WOD."
- },
- {
-   "title": "Concentration Curl",
-   "wod": "Run 400 meters\nMax rep Pull-ups\nAs many rounds as possible in 20 minutes.\nNote number of pull-ups completed for each round."
+   "title": "Bench Dip",
+   "bodypart": "triceps"
  }
 ]
 }

@@ -15,4 +15,20 @@
     <string name="kg">kg</string>
     <string name="save">Save</string>
     <string name="delete">Delete</string>
+
+    <string-array name="sports_array">
+        <item>Bench Press</item>
+        <item>Deadlift</item>
+        <item>Squat</item>
+        <item>Bicep Curl</item>
+        <item>Overhead Extension</item>
+        <item>Chest Fly</item>
+        <item>Lateral Row</item>
+    </string-array>
+
+    <string-array name="sports_array2">
+        <item>Workout1</item>
+        <item>Workout2</item>
+        <item>Workout3</item>
+    </string-array>
 </resources>
