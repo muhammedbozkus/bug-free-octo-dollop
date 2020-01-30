@@ -4,6 +4,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.navigation.NavController;
 import androidx.navigation.NavDestination;
 import androidx.navigation.Navigation;
@@ -13,22 +15,48 @@ import androidx.navigation.ui.NavigationUI;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.WindowManager;
+import android.widget.ListView;
 
 import com.example.newmusclelog.custom.NewWorkoutDialog;
 import com.example.newmusclelog.data.Workout;
 import com.example.newmusclelog.data.WorkoutHistory;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 import java.io.IOException;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
     private WorkoutHistory workoutHistory;
+    static ListView lv;
+    String currentFragment;
+
+    public static ListView getLv() {
+        return lv;
+    }
+
+    public static void setLv(ListView lv) {
+        MainActivity.lv = lv;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
+        FirebaseUser firebaseUser = firebaseAuth.getCurrentUser();
+
+        if(firebaseUser != null) {
+            Navigation.findNavController(this, R.id.nav_host_fragment).navigate(R.id.newworkoutFragment);
+
+
+        }
+
         try {
             workoutHistory = new WorkoutHistory(getApplicationContext().getFilesDir());
         } catch (IOException e) {
@@ -67,4 +95,5 @@ public class MainActivity extends AppCompatActivity {
         activeWorkoutFragment.setArguments(bundle);
         Navigation.findNavController(this, R.id.nav_host_fragment).navigate(R.id.activeWorkoutFragment);
     }
+
 }

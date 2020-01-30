@@ -4,9 +4,14 @@ package com.example.newmusclelog;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
 
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Adapter;
@@ -15,6 +20,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.newmusclelog.custom.DataHelper;
 import com.example.newmusclelog.data.Exercise;
@@ -36,6 +42,7 @@ public class ExercisesFragment extends Fragment {
     private ArrayList<Exercise> exerciseList;
     private ArrayList<String> nameList;
     //private Adapter adapter;
+    String item;
 
     public ExercisesFragment() {
         // Required empty public constructor
@@ -46,8 +53,8 @@ public class ExercisesFragment extends Fragment {
                              Bundle savedInstanceState) {
 
         View v = inflater.inflate(R.layout.fragment_exercises, container, false);
-
         lv = v.findViewById(R.id.lv);
+
         Query query = FirebaseDatabase.getInstance().getReference().child("exerciseList");
         FirebaseListOptions<ExerciseElement> options = new FirebaseListOptions.Builder<ExerciseElement>()
                 .setLayout(R.layout.exercise)
@@ -70,30 +77,27 @@ public class ExercisesFragment extends Fragment {
         lv.setAdapter(adapter);
 
 
-        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+       /* lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                ExerciseElement el = (ExerciseElement) lv.getItemAtPosition(position);
+                item = el.getTitle();
+
+                ActiveWorkoutFragment awf = new ActiveWorkoutFragment();
+                Bundle args = new Bundle();
+                args.putString("ExerciseTitle", item);
+                awf.setArguments(args);
+
+                getFragmentManager().beginTransaction().replace(R.id.nav_host_fragment, awf).commit();
+                //Navigation.findNavController(v).navigate(R.id.activeWorkoutFragment);
 
             }
-        });
-        /*try {
-            exerciseList = DataHelper.loadExercise(this);
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-
-        nameList = new ArrayList<>();
-        for(int i = 0; i < exerciseList.size(); i++) {
-            String str = exerciseList.get(i).getName();
-            nameList.add(str);
-        }
-
-        adapter = new ArrayAdapter<String>(getActivity().getApplicationContext(), android.R.layout.simple_list_item_1, nameList);
-        lv.setAdapter((ListAdapter) adapter);*/
-
+        });*/
         return v;
+    }
+
+    public interface TextClicked {
+        public void sendText(String item);
     }
 
     @Override
@@ -107,4 +111,5 @@ public class ExercisesFragment extends Fragment {
         super.onStop();
         adapter.stopListening();
     }
+
 }

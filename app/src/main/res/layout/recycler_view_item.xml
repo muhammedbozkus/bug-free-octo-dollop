@@ -20,13 +20,14 @@
         android:hint="@string/exercise_name"
         android:inputType="textCapSentences"
         android:nextFocusRight="@+id/exercise_weight"
-        android:textColor="@color/colorPrimary"
+        android:textColor="#FFF"
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="Autofill"
-        tools:text="Squat"/>
+        tools:text="Squat"
+        android:textColorHint="#FFF"/>
 
     <EditText
         android:id="@+id/exercise_weight"
@@ -48,7 +49,9 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/exercise_name"
         app:layout_constraintTop_toTopOf="parent"
-        tools:text="22222"/>
+        tools:text="22222"
+        android:textColorHint="#FFF"
+        android:textColor="#FFF"/>
 
     <TextView
         android:id="@+id/reps"
@@ -58,11 +61,12 @@
         android:layout_marginEnd="18dp"
         android:layout_marginRight="18dp"
         android:text="@string/reps"
-        android:textColor="?attr/editTextColor"
+        android:textColor="#FFF"
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent"
+        android:textColorHint="#FFF"/>
 
     <EditText
         android:id="@+id/exercise_reps"
@@ -81,7 +85,9 @@
         android:maxLength="3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:text="120" />
+        tools:text="120"
+        android:textColorHint="#FFF"
+        android:textColor="#FFF"/>
 
     <TextView
         android:id="@+id/lbs"
@@ -91,10 +97,11 @@
         android:layout_marginEnd="23dp"
         android:layout_marginRight="23dp"
         android:text="@string/kg"
-        android:textColor="?attr/editTextColor"
+        android:textColor="#FFF"
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@+id/exercise_weight"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:textColorHint="#FFF" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
